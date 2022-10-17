@@ -117,6 +117,14 @@ public class HTMLConverter {
         return pluginManager.process(outputHTML: html)
     }
     
+    func rootNode(from attributedString: NSAttributedString, prettify: Bool = false) -> RootNode {
+        let rootNode = attributedStringToTree.parse(attributedString)
+        
+        pluginManager.process(outputHTMLTree: rootNode)
+        
+        return rootNode
+    }
+    
 }
 
 // MARK: - Helpers

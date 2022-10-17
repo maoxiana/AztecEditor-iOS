@@ -817,6 +817,10 @@ open class TextView: UITextView {
         formattingDelegate?.textViewCommandToggledAStyle()
     }
     
+    public func getRootNode(prettify: Bool = true) -> RootNode {
+        return storage.getRootNode(prettify: prettify)
+    }
+    
     public func replace(_ range: NSRange, withHTML html: String) {
         
         let string = storage.htmlConverter.attributedString(from: html, defaultAttributes: defaultAttributes)

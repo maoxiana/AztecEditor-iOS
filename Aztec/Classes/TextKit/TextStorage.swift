@@ -428,6 +428,11 @@ open class TextStorage: NSTextStorage {
         edited([.editedAttributes, .editedCharacters], range: NSRange(location: 0, length: originalLength), changeInLength: textStore.length - originalLength)
     }
     
+    open func getRootNode(prettify: Bool = false) -> RootNode {
+        return htmlConverter.rootNode(from: self, prettify: prettify)
+    }
+
+    
     private func setupAttachmentDelegates() {
         textStore.enumerateAttachmentsOfType(MediaAttachment.self) { [weak self] (attachment, _, _) in
             attachment.delegate = self

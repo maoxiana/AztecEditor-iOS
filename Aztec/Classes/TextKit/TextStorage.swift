@@ -416,6 +416,10 @@ open class TextStorage: NSTextStorage {
         return htmlConverter.html(from: attributedString, prettify: prettify)
     }
     
+    open func getHtml(prettify: Bool = false, from rootNode: RootNode) -> String {
+        return htmlConverter.getHtml(from: rootNode, prettify: prettify)
+    }
+    
     func setHTML(_ html: String, defaultAttributes: [NSAttributedString.Key: Any]) {
         let originalLength = length
         let attrString = htmlConverter.attributedString(from: html, defaultAttributes: defaultAttributes)

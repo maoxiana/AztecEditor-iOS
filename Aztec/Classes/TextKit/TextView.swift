@@ -817,6 +817,11 @@ open class TextView: UITextView {
         formattingDelegate?.textViewCommandToggledAStyle()
     }
     
+    public func setRootNode(_ node: RootNode) {
+        let html = storage.getHtml(from: node)
+        setHTML(html)
+    }
+    
     public func getRootNode(prettify: Bool = true) -> RootNode {
         return storage.getRootNode(prettify: prettify)
     }

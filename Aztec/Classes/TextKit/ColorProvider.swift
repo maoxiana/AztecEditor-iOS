@@ -46,7 +46,9 @@ public class ColorProvider {
     }
 
     public lazy var codeBackgroungColor: UIColor = {
-        if #available(iOS 13.0, *) {
+        if let color = extraColors["codeBackgroungColor"] {
+            return color
+        } else if #available(iOS 13.0, *) {
             return .secondarySystemBackground
         } else {
             return .lightGray

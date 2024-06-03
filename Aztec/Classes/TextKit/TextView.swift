@@ -1178,11 +1178,12 @@ open class TextView: UITextView {
     ///
     /// - Parameter range: The NSRange to edit.
     ///
-    open func toggleMark(range: NSRange, color: String?, resetColor: Bool) {
+    open func toggleMark(range: NSRange, textColor: String? = nil, bgColor: UIColor? = nil, resetColor: Bool) {
         let formatter = MarkFormatter()
         formatter.placeholderAttributes = self.defaultAttributes
         formatter.defaultTextColor = self.defaultTextColor
-        formatter.textColor = color
+        formatter.textColor = textColor
+        formatter.backgroundColor = bgColor
 
         // If the format exists remove the current formatting
         // this can happen when the color changed.

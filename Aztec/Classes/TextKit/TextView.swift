@@ -452,7 +452,7 @@ open class TextView: UITextView {
         font = defaultFont
         linkTextAttributes = [.underlineStyle: NSNumber(value: NSUnderlineStyle.single.rawValue), .foregroundColor: tintColor as Any]
         typingAttributes = defaultAttributes
-        setupMenuController()
+//        setupMenuController()
         setupAttachmentTouchDetection()
         setupLayoutManager()
     }

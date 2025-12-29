@@ -54,4 +54,12 @@ public class ColorProvider {
             return .lightGray
         }
     }()
+    
+    public lazy var codeForeColor: UIColor? = {
+        if let color = extraColors["codeForeColor"] {
+            return color
+        } else {
+            return nil
+        }
+    }()
 }

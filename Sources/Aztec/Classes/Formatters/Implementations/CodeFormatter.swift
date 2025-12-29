@@ -27,6 +27,9 @@ class CodeFormatter: AttributeFormatter {
 
         resultingAttributes[.font] = monospaceFont
         resultingAttributes[.backgroundColor] = self.backgroundColor
+        if let fontColor = ColorProvider.shared.codeForeColor {
+            resultingAttributes[.foregroundColor] = fontColor
+        }
         var representationToUse = HTMLRepresentation(for: .element(HTMLElementRepresentation.init(name: "code", attributes: [])))
         if let requestedRepresentation = representation {
             representationToUse = requestedRepresentation

@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+* Added support for alternate bullet styles per level for ordered and unordered lists [#1409]
 
 ### Bug Fixes
 
@@ -48,28 +48,26 @@ _None._
 
 _None._
 
+## 1.20.0
+
+### Internal Changes
+
+* Added SPM support [#1379, #1406].
+
 ## 1.19.11
 
 ### Bug Fixes
 
-- Improve Mark formatting. [#1352]
+* Improve Mark formatting. [#1352]
 
 ## 1.19.10
 
 ### Bug Fixes
 
-- Fixed crash when attempting to render Gutenberg comment. [#1383]
-- Fixed crash when underlining text with special glyphs. [#1384]
+* Fixed crash when attempting to render Gutenberg comment. [#1383]
+* Fixed crash when underlining text with special glyphs. [#1384]
 
 ## 1.19.9
-
-### Breaking Changes
-
-_None._
-
-### New Features
-
-_None._
 
 ### Bug Fixes
 
@@ -77,7 +75,7 @@ _None._
 
 ### Internal Changes
 
-- Add this changelog file. [#1365]
+* Add this changelog file. [#1365]
 
 ---
 
@@ -138,15 +136,15 @@ _Versions below this precede the Keep a Changelog-inspired formatting._
 
 1.16.0
 -----
- * Improve display of ordered lists with large bullet numbers
- * Fix bug where links with text that had a mix of Latin and non-Latin characters were getting split.
+* Improve display of ordered lists with large bullet numbers
+* Fix bug where links with text that had a mix of Latin and non-Latin characters were getting split.
 
 1.15.0
 -----
- * Allow to use headers fonts without bold effect applied
- * Support for multilevel blockquotes
- * Fix presentation of placeholder images in dark mode.
- * Fix bug that didn't set default text color when changing text color
+* Allow to use headers fonts without bold effect applied
+* Support for multilevel blockquotes
+* Fix presentation of placeholder images in dark mode.
+* Fix bug that didn't set default text color when changing text color
 
 1.14.1
 -----

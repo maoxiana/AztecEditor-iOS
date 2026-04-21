@@ -498,19 +498,22 @@ extension ParagraphStyle {
 
 extension NSParagraphStyle {
     @objc func swizzledIsEqual(_ object: Any?) -> Bool {
-        let selfIsStandardParagraphStyle = object_getClass(self) == NSParagraphStyle.self || object_getClass(self) == NSMutableParagraphStyle.self
-        let objectIsStandardParagraphStyle = object_getClass(object) == NSParagraphStyle.self || object_getClass(object) == NSMutableParagraphStyle.self
+        let selfClass = object_getClass(self)
+        let objectClass = object_getClass(object)
+        
+        let selfIsStandard =
+        selfClass == NSParagraphStyle.self || selfClass == NSMutableParagraphStyle.self
+        let objectIsStandard =
+        objectClass == NSParagraphStyle.self || objectClass == NSMutableParagraphStyle.self
         
         // We only override the default `isEqual` implementation if the receiver is either NSParagraphStyle or NSMutableParagraphStyle
         // and the object parameter is not.
-        if selfIsStandardParagraphStyle && !objectIsStandardParagraphStyle {
-            if let nsObject = object as? NSObject {
-                return nsObject.isEqual(self)
-            } else {
-                return false
-            }
-        } else {
-            return swizzledIsEqual(object)
+        // 关键：标准段落样式 与 Aztec 子类段落样式比较，直接不相等，避免递归互调
+        if selfIsStandard != objectIsStandard {
+            return false
         }
+        
+        // 同类家族比较，走原始实现
+        return swizzledIsEqual(object)
     }
 }
